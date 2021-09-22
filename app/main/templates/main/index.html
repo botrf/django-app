@@ -1,12 +1,18 @@
 {% extends 'main/base.html' %}
 {% block title %}Index htlml{% endblock %}
 {% block name %}
-Home
+    Home
 {% endblock %}
 {% block content %}
-{% for task in tasks %}
-<h4>{{task.title}}</h4> <br> <hr>
-{% endfor%}
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem suscipit sit quae molestiae neque
-    tenetur ullam. Quo ad amet facere! Dolorem nisi possimus recusandae dolorum ab fugit asperiores autem neque!</p>
+    {% if tasks%}
+        {% for task in tasks %}
+            <div class="alert alert-success mt-2">
+                <h3>{{ task.title }}</h3>
+                <p>{{ task.task }}</p>
+            </div>
+        {% endfor%}
+    {% else %}
+        <p>task null</p>
+    {% endif%}
+    
 {% endblock %}
